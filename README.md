@@ -29,6 +29,8 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - **🎨 Frontend Development:** HTML, React, TypeScript, responsive design.
 - **🧮 Algorithms and Data Structures:** Sorting, searching, graph algorithms.
 - **🛠️ Tools and Utilities:** Git, GitHub, VSCode tips.
+<br>
+🐯🐯 https://nan0silver.github.io 에 상세한 공부 내용이 기록되어 있습니다.
 
 ---
 

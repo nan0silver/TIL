@@ -2,8 +2,8 @@ name: Update TIL List in README
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 매일 자정(UTC)에 실행
-  workflow_dispatch: # 수동 실행 가능
+    - cron: "0 0 * * *"  # 매일 자정(UTC) 실행
+  workflow_dispatch:  # 수동 실행 가능
 
 jobs:
   update-readme:
@@ -21,9 +21,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Remove duplicates from latest_tils.md
+        run: |
+          sort -u latest_tils.md -o latest_tils.md  # 중복 제거
+
       - name: Update README.md
         run: |
-          awk '/## 📌 TIL List/{print; print ""; system("cat latest_tils.md"); next}1' README.md > README_new.md
+          awk '/## 📌 TIL List/{print; print ""; system("cat latest_tils.md"); next}1' README.md | uniq > README_new.md
           mv README_new.md README.md
 
       - name: Commit and push changes
@@ -31,5 +35,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Auto-update TIL list in README.md" || exit 0
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update TIL list in README.md"
           git push

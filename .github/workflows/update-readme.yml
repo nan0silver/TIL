@@ -21,13 +21,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Remove duplicates from latest_tils.md
+      - name: Extract existing TILs from README
         run: |
-          sort -u latest_tils.md -o latest_tils.md  # 중복 제거
+          awk '/## 📌 TIL List/{flag=1; next} flag' README.md | grep "^- " > current_tils.md || true
+
+      - name: Append only new TILs
+        run: |
+          comm -13 <(sort current_tils.md) <(sort latest_tils.md) > new_tils.md
+          cat new_tils.md >> current_tils.md
 
       - name: Update README.md
         run: |
-          awk '/## 📌 TIL List/{print; print ""; system("cat latest_tils.md"); next}1' README.md | uniq > README_new.md
+          awk '/## 📌 TIL List/{print; print ""; system("cat current_tils.md"); next}1' README.md > README_new.md
           mv README_new.md README.md
 
       - name: Commit and push changes

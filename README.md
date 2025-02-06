@@ -35,18 +35,6 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-04](https://github.com/nan0silver/TIL/issues/10)
 - [[TIL] 2025-02-05](https://github.com/nan0silver/TIL/issues/11)
 
-- [[TIL] 2025-01-31](https://github.com/nan0silver/TIL/issues/8)
-- [[TIL] 2025-01-27](https://github.com/nan0silver/TIL/issues/7)
-- [[TIL] 2025-01-24](https://github.com/nan0silver/TIL/issues/6)
-- [[TIL] 2025-01-23](https://github.com/nan0silver/TIL/issues/5)
-- [[TIL] 2025-01-22](https://github.com/nan0silver/TIL/issues/4)
-- [[TIL] 2025-01-21](https://github.com/nan0silver/TIL/issues/3)
-- [[TIL] 2025-01-20](https://github.com/nan0silver/TIL/issues/2)
-- [[TIL] 2025-01-16](https://github.com/nan0silver/TIL/issues/1)
-- [[TIL] 2025-02-03](https://github.com/nan0silver/TIL/issues/9)
-- [[TIL] 2025-02-04](https://github.com/nan0silver/TIL/issues/10)
-- [[TIL] 2025-02-05](https://github.com/nan0silver/TIL/issues/11)
-
 
 _See all TILs in the [GitHub Issues](https://github.com/nan0silver/TIL/issues) section._
 

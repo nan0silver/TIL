@@ -22,7 +22,6 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 ---
 
 ## 📌 TIL List
-
 - [[TIL] 2025-01-31](https://github.com/nan0silver/TIL/issues/8)
 - [[TIL] 2025-01-27](https://github.com/nan0silver/TIL/issues/7)
 - [[TIL] 2025-01-24](https://github.com/nan0silver/TIL/issues/6)
@@ -34,17 +33,3 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-03](https://github.com/nan0silver/TIL/issues/9)
 - [[TIL] 2025-02-04](https://github.com/nan0silver/TIL/issues/10)
 - [[TIL] 2025-02-05](https://github.com/nan0silver/TIL/issues/11)
-
-
-_See all TILs in the [GitHub Issues](https://github.com/nan0silver/TIL/issues) section._
-
----
-
-<br>
-🐯🐯 https://nan0silver.github.io 에 상세한 공부 내용이 기록되어 있습니다.
-
----
-
-## 💬 Feedback
-
-💡 Have suggestions or questions? Feel free to reach out via GitHub!

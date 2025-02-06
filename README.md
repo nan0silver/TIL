@@ -19,6 +19,8 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 
 #### 🐬 참고 자료
 
+🐯🐯 https://nan0silver.github.io 에 상세한 공부 내용이 기록되어 있습니다.
+
 ---
 
 ## 📌 TIL List

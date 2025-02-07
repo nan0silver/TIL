@@ -27,8 +27,10 @@ jobs:
 
       - name: Append only new TILs
         run: |
+          sed -n '/## 📌 TIL List/,$p' README.md | grep "^- " > current_tils.md || true
           grep -Fxvf current_tils.md latest_tils.md > new_tils.md || true
-          cat new_tils.md >> current_tils.md
+          cp latest_tils.md current_tils.md
+
 
       - name: Update README.md
         run: |

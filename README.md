@@ -35,3 +35,4 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-03](https://github.com/nan0silver/TIL/issues/9)
 - [[TIL] 2025-02-04](https://github.com/nan0silver/TIL/issues/10)
 - [[TIL] 2025-02-05](https://github.com/nan0silver/TIL/issues/11)
+- [[TIL] 2025-02-06](https://github.com/nan0silver/TIL/issues/12)

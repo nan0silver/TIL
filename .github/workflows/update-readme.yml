@@ -25,11 +25,16 @@ jobs:
         run: |
           sed -n '/## 📌 TIL List/,$p' README.md | grep "^- " > current_tils.md || true
 
-      - name: Append only new TILs (Sorted)
+      - name: Remove outdated TILs and append new ones (Sorted)
         run: |
-          sed -n '/## 📌 TIL List/,$p' README.md | grep "^- " > current_tils.md || true
-          grep -Fxvf current_tils.md latest_tils.md > new_tils.md || true
-          cat current_tils.md new_tils.md | sort -u > sorted_tils.md
+          # 기존 목록에서 동일한 issue 번호가 있는 경우 삭제
+          awk '{print $NF}' latest_tils.md | while read url; do
+            grep -v "$url" current_tils.md > temp_tils.md
+            mv temp_tils.md current_tils.md
+          done
+
+          # 새로운 목록을 기존 목록과 합쳐 정렬 후 중복 제거
+          cat current_tils.md latest_tils.md | sort -u > sorted_tils.md
           mv sorted_tils.md current_tils.md
 
       - name: Update README.md

@@ -24,7 +24,7 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 ---
 
 ## 📌 TIL List
-- 
+
 - [[TIL] 2025-01-20 CSS의 정의, em, rem, float](https://github.com/nan0silver/TIL/issues/2)
 - [[TIL] 2025-01-21 CSS position, flex, bootstrap, responsive/reactive, PWA](https://github.com/nan0silver/TIL/issues/3)
 - [[TIL] 2025-01-22 git clone VS fork, Headless CMS, Strapi, 네이밍 컨벤션](https://github.com/nan0silver/TIL/issues/4)

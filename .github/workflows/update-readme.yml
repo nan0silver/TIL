@@ -41,5 +41,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
+
+          # 변경 사항이 없으면 커밋하지 않음
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update TIL list in README.md"
           git push

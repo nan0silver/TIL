@@ -25,12 +25,12 @@ jobs:
         run: |
           sed -n '/## 📌 TIL List/,$p' README.md | grep "^- " > current_tils.md || true
 
-      - name: Append only new TILs
+      - name: Append only new TILs (Sorted)
         run: |
           sed -n '/## 📌 TIL List/,$p' README.md | grep "^- " > current_tils.md || true
           grep -Fxvf current_tils.md latest_tils.md > new_tils.md || true
-          cp latest_tils.md current_tils.md
-
+          cat current_tils.md new_tils.md | sort -u > sorted_tils.md
+          mv sorted_tils.md current_tils.md
 
       - name: Update README.md
         run: |

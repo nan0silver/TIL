@@ -35,3 +35,5 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-05 시큐어 코딩, glitch, CORS](https://github.com/nan0silver/TIL/issues/11)
 - [[TIL] 2025-02-06 JS Callback, Promise, Fetch, Axios](https://github.com/nan0silver/TIL/issues/12)
 - [[TIL] 2025-02-10 Express.js, nodemon, dotenv, 다단계 AI호출](https://github.com/nan0silver/TIL/issues/13)
+- [[TIL] 2025-02-11 Kakao Login 구현](https://github.com/nan0silver/TIL/issues/14)
+- [[TIL] 2025-02-12 JWT로 Kakao & Google Login, Supabase DB 연동 (Flask)](https://github.com/nan0silver/TIL/issues/15)

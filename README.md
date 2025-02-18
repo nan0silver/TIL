@@ -39,3 +39,4 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-12 JWT로 Kakao & Google Login, Supabase DB 연동 (Flask)](https://github.com/nan0silver/TIL/issues/15)
 - [[TIL] 2025-02-13 Supabase 연동 및 Render를 이용한 배포, Flask_CORS](https://github.com/nan0silver/TIL/issues/16)
 - [[TIL] 2025-02-14 Swagger, Naver Login 연동, 게시판 프론트 & 백엔드 연결](https://github.com/nan0silver/TIL/issues/17)
+- [[TIL] 2025-02-17 JWT 저장방식 HttpOnly Cookies VS LocalStorage](https://github.com/nan0silver/TIL/issues/18)

@@ -24,7 +24,6 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 ---
 
 ## 📌 TIL List
-- [TIL - 2025-02-26 HashMap의 초기 크기 설정](https://github.com/nan0silver/TIL/issues/20)
 - [[TIL] 2025-01-20 CSS의 정의, em, rem, float](https://github.com/nan0silver/TIL/issues/2)
 - [[TIL] 2025-01-21 CSS position, flex, bootstrap, responsive/reactive, PWA](https://github.com/nan0silver/TIL/issues/3)
 - [[TIL] 2025-01-22 git clone VS fork, Headless CMS, Strapi, 네이밍 컨벤션](https://github.com/nan0silver/TIL/issues/4)
@@ -42,3 +41,4 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-14 Swagger, Naver Login 연동, 게시판 프론트 & 백엔드 연결](https://github.com/nan0silver/TIL/issues/17)
 - [[TIL] 2025-02-17 JWT 저장방식 HttpOnly Cookies VS LocalStorage](https://github.com/nan0silver/TIL/issues/18)
 - [[TIL] 2025-02-18 효율적인 git commit 전략](https://github.com/nan0silver/TIL/issues/19)
+- [[TIL] 2025-02-26 HashMap의 초기 크기 설정](https://github.com/nan0silver/TIL/issues/20)

@@ -42,3 +42,4 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-17 JWT 저장방식 HttpOnly Cookies VS LocalStorage](https://github.com/nan0silver/TIL/issues/18)
 - [[TIL] 2025-02-18 효율적인 git commit 전략](https://github.com/nan0silver/TIL/issues/19)
 - [[TIL] 2025-02-26 HashMap의 초기 크기 설정](https://github.com/nan0silver/TIL/issues/20)
+- [[TIL] 2025-03-05 함수형 인터페이스, Logger, Record, Httpclient](https://github.com/nan0silver/TIL/issues/21)

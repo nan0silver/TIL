@@ -43,3 +43,4 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-18 효율적인 git commit 전략](https://github.com/nan0silver/TIL/issues/19)
 - [[TIL] 2025-02-26 HashMap의 초기 크기 설정](https://github.com/nan0silver/TIL/issues/20)
 - [[TIL] 2025-03-05 함수형 인터페이스, Logger, Record, Httpclient (수정중..)](https://github.com/nan0silver/TIL/issues/21)
+- [[TIL] 2025-03-06 레이어드 아키텍쳐, MVC, 보일러 플레이트 (수정중..)](https://github.com/nan0silver/TIL/issues/22)

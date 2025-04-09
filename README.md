@@ -56,3 +56,7 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-03-27 Github Gist, SQL Injection](https://github.com/nan0silver/TIL/issues/32)
 - [[TIL] 2025-03-28 Spring에서 interface와 abstract class](https://github.com/nan0silver/TIL/issues/33)
 - [[TIL] 2025-04-01 HttpClient/ RestTemplate/ WebClient, 논블로킹 vs 비동기, 보일러 플레이트 → 롬복, 패키지, 모듈, 라이브러리, 프레임워크, 스켈레톤, 템플릿](https://github.com/nan0silver/TIL/issues/34)
+- [[TIL] 2025-04-02 DTO vs VO vs Entity, DTO/DAO/Repository](https://github.com/nan0silver/TIL/issues/35)
+- [[TIL] 2025-04-03 오버플로우, 언더플로우, 버퍼 오버플로우 위험성](https://github.com/nan0silver/TIL/issues/36)
+- [[TIL] 2025-04-04 JPA / MyBatis, AOP가 IoC한테 다 잡아 먹혔다](https://github.com/nan0silver/TIL/issues/37)
+- [[TIL] 2025-04-08 JPA 주요 애너테이션, CompletableFuture](https://github.com/nan0silver/TIL/issues/38)

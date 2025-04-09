@@ -44,6 +44,8 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-02-26 HashMap의 초기 크기 설정](https://github.com/nan0silver/TIL/issues/20)
 - [[TIL] 2025-03-05 함수형 인터페이스, Logger, Record, Httpclient](https://github.com/nan0silver/TIL/issues/21)
 - [[TIL] 2025-03-06 레이어드 아키텍쳐, MVC, 보일러 플레이트](https://github.com/nan0silver/TIL/issues/22)
+- [[TIL] 2025-03-07 immutable/final/const, Java Concurrency](https://github.com/nan0silver/TIL/issues/23)
+- [[TIL] 2025-03-08 정적・동적 프로퍼티, HTML, JavaScript, Java에서 프로퍼티 차이](https://github.com/nan0silver/TIL/issues/24)
 - [[TIL] 2025-03-09 Java record, HttpClient / HttpRequest / HttpResponse](https://github.com/nan0silver/TIL/issues/25)
 - [[TIL] 2025-03-12 Redirect vs Forward](https://github.com/nan0silver/TIL/issues/26)
 - [[TIL] 2025-03-13 JSP에서 정적 리소스 서빙](https://github.com/nan0silver/TIL/issues/27)

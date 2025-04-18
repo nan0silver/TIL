@@ -61,3 +61,5 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-04-04 JPA / MyBatis, AOP가 IoC한테 다 잡아 먹혔다](https://github.com/nan0silver/TIL/issues/37)
 - [[TIL] 2025-04-08 JPA 주요 애너테이션, CompletableFuture](https://github.com/nan0silver/TIL/issues/38)
 - [[TIL] 2025-04-09 Thymeleaf, UUID 버전별 특징](https://github.com/nan0silver/TIL/issues/39)
+- [[TIL] 2025-04-10 JPA 더티체킹](https://github.com/nan0silver/TIL/issues/40)
+- [[TIL] 2025-04-16 JWT로 로그인을 구현했을 때 로그아웃 방법을 어떻게 해야할까?](https://github.com/nan0silver/TIL/issues/41)

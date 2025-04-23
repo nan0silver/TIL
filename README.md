@@ -63,3 +63,5 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-04-09 Thymeleaf, UUID 버전별 특징](https://github.com/nan0silver/TIL/issues/39)
 - [[TIL] 2025-04-10 JPA 더티체킹](https://github.com/nan0silver/TIL/issues/40)
 - [[TIL] 2025-04-16 JWT로 로그인을 구현했을 때 로그아웃 방법을 어떻게 해야할까?](https://github.com/nan0silver/TIL/issues/41)
+- [[TIL] 2025-04-17 JPA Query Method, Spring Security에서 Swagger docs, pring Security기반의 JWT 토큰 구현하기](https://github.com/nan0silver/TIL/issues/42)
+- [[TIL] 2025-04-18 @Controller vs @RestController, JPA reflection에서의 `@NoArgConstructor`](https://github.com/nan0silver/TIL/issues/43)

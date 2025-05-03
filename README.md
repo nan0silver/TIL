@@ -65,3 +65,7 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-04-16 JWT로 로그인을 구현했을 때 로그아웃 방법을 어떻게 해야할까?](https://github.com/nan0silver/TIL/issues/41)
 - [[TIL] 2025-04-17 JPA Query Method, Spring Security에서 Swagger docs, pring Security기반의 JWT 토큰 구현하기](https://github.com/nan0silver/TIL/issues/42)
 - [[TIL] 2025-04-18 @Controller vs @RestController, JPA reflection에서의 `@NoArgConstructor`](https://github.com/nan0silver/TIL/issues/43)
+- [[TIL] 2025-04-19 Omit, Clean URL, Query String, Tuple, POJO, VO, Instance 등..](https://github.com/nan0silver/TIL/issues/44)
+- [[TIL] 2025-04-21 PATCH vs PUT, 0-1 BFS (동작방식 gif 포함!)](https://github.com/nan0silver/TIL/issues/45)
+- [[TIL] 2025-04-22 Spring Boot Pageable, PageableDefault 어노테이션](https://github.com/nan0silver/TIL/issues/46)
+- [[TIL] 2025-04-28 Spring Cloud Gateway](https://github.com/nan0silver/TIL/issues/47)

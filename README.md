@@ -69,3 +69,5 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-04-21 PATCH vs PUT, 0-1 BFS (동작방식 gif 포함!)](https://github.com/nan0silver/TIL/issues/45)
 - [[TIL] 2025-04-22 Spring Boot Pageable, PageableDefault 어노테이션](https://github.com/nan0silver/TIL/issues/46)
 - [[TIL] 2025-04-28 Spring Cloud Gateway](https://github.com/nan0silver/TIL/issues/47)
+- [[TIL] 2025-04-29 정적 팩토리 메서드, 모놀로닉 아키텍쳐](https://github.com/nan0silver/TIL/issues/48)
+- [[TIL] 2025-04-30 DTO 나누는 기준, Entity에서 DTO 생성하는 방식, @Valid](https://github.com/nan0silver/TIL/issues/49)

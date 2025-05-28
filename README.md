@@ -79,3 +79,8 @@ Welcome to my **Today I Learned (TIL)** repository! <br>
 - [[TIL] 2025-05-11 UUID와 Auto Increment PK는 언제 사용할까?](https://github.com/nan0silver/TIL/issues/55)
 - [[TIL] 2025-05-12 spring-boot-starter-validation, 테스트 코드 모니터링 툴](https://github.com/nan0silver/TIL/issues/56)
 - [[TIL] 2025-05-20 Ollama](https://github.com/nan0silver/TIL/issues/57)
+- [[TIL] 2025-05-21 RPM, 앙상블, 비용, WSL, Windows Subsystem for Linux 2, Phoenix vs Snowflake](https://github.com/nan0silver/TIL/issues/58)
+- [[TIL] 2025-05-22 메테리얼 디자인 vs 쿠퍼티노 디자인, Log vs Metrics, Structured Logging, ELK vs EFK 스택](https://github.com/nan0silver/TIL/issues/59)
+- [[TIL] 2025-05-23 Grafana & Prometheus, Rolling Policy, 시계열 메트릭](https://github.com/nan0silver/TIL/issues/60)
+- [[TIL] 2025-05-24 Nginx, 리버스 프록시, 로드 밸런서](https://github.com/nan0silver/TIL/issues/61)
+- [[TIL] 2025-05-27 Jenkins vs GitHub Actions, IaaS vs PaaS vs SaaS](https://github.com/nan0silver/TIL/issues/62)

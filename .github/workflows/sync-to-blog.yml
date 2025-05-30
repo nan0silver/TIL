@@ -1,0 +1,54 @@
+name: Sync TIL Issues to Blog
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  sync-to-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout TIL repository
+        uses: actions/checkout@v3
+        with:
+          repository: nan0silver/TIL
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Checkout Blog repository
+        uses: actions/checkout@v3
+        with:
+          repository: nan0silver/nan0silver.github.io
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: blog
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Install dependencies
+        run: |
+          gem install octokit
+          gem install fileutils
+
+      - name: Sync Issues to Blog Posts
+        run: |
+          ruby .github/scripts/sync-issues.rb
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          TIL_REPO: 'nan0silver/TIL'
+          BLOG_REPO: 'nan0silver/nan0silver.github.io'
+
+      - name: Commit and push to blog
+        run: |
+          cd blog
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-sync: Update blog posts from TIL issues"
+            git push
+          fi

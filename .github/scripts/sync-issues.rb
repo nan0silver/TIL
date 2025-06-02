@@ -37,65 +37,67 @@ til_issues.each do |issue|
     .gsub(/#{Regexp.escape(post_date)}\s*/, '')
     .strip
   
-  # 파일명 생성
-  title_slug = clean_title.downcase
-    .gsub(/[^a-z0-9\s가-힣-]/, '')  # 한글 포함한 특수문자 제거
-    .gsub(/\s+/, '-')               # 공백을 하이픈으로
-    .gsub(/-+/, '-')                # 연속 하이픈 제거
-    .strip
-    .slice(0, 50)                   # 길이 제한
-
-  filename = "#{post_date}-#{title_slug}.md"
+  # 제목 길이 제한 및 [TIL] 접두사 추가
+  display_title = clean_title
+  if display_title.length > 50
+    display_title = display_title.slice(0, 47) + "..."
+  end
+  blog_title = "[TIL] #{display_title}"
   
-  # 카테고리 자동 분류 (제목 키워드 기반)
-  categories = []
+  # 파일명 생성 (간단하게)
+  filename = "#{post_date}-til.md"
+  
+  # TIL 카테고리로 고정하고 태그만 자동 분류
+  categories = ['til']
   tags = ['TIL']
   
   title_lower = clean_title.downcase
   
-  case title_lower
-  when /java|jpa|spring|lombok|hibernate|gradle|maven/
-    categories << 'java' if title_lower.match(/java|jpa|hibernate|gradle|maven/)
-    categories << 'spring' if title_lower.include?('spring')
+  # 내용 기반으로 태그만 추가
+  if title_lower.match(/java|jpa|spring|lombok|hibernate|gradle|maven/)
     tags << 'Java' if title_lower.match(/java|jpa|hibernate/)
     tags << 'Spring' if title_lower.include?('spring')
-  when /javascript|js|node|express|axios|dom|bom|css|html|bootstrap|responsive|reactive/
-    categories << 'javascript'
+  end
+  
+  if title_lower.match(/javascript|js|node|express|axios|dom|bom|css|html|bootstrap|responsive|reactive/)
     tags << 'JavaScript'
     tags << 'CSS' if title_lower.include?('css')
     tags << 'HTML' if title_lower.include?('html')
-  when /git|github|commit|rebase|fork|jenkins|actions|ci\/cd|devops/
-    categories << 'git'
-    tags << 'Git'
-    tags << 'DevOps' if title_lower.match(/jenkins|actions|ci|devops/)
-  when /algorithm|bfs|dfs|dp|그래프|트리/
-    categories << 'algorithm'
-    tags << 'Algorithm'
-  when /flask|python|django/
-    categories << 'flask'
-    tags << 'Flask' if title_lower.include?('flask')
-    tags << 'Python' if title_lower.include?('python')
-  when /project|버티|msa|gateway|아키텍처|프로젝트/
-    categories << 'projectdiary'
-    tags << 'Project'
-  when /aws|azure|gcp|cloud|iaas|paas|saas|docker|kubernetes/
-    categories << 'miscellaneous'
-    tags << 'Cloud' if title_lower.match(/aws|azure|gcp|cloud|iaas|paas|saas/)
-    tags << 'DevOps' if title_lower.match(/docker|kubernetes|jenkins|actions/)
-  else
-    categories << 'miscellaneous'
   end
   
-  categories = ['til'] if categories.empty?
-  primary_category = categories.first
+  if title_lower.match(/git|github|commit|rebase|fork|jenkins|actions|ci\/cd|devops/)
+    tags << 'Git'
+    tags << 'DevOps' if title_lower.match(/jenkins|actions|ci|devops/)
+  end
+  
+  if title_lower.match(/algorithm|bfs|dfs|dp|그래프|트리/)
+    tags << 'Algorithm'
+  end
+  
+  if title_lower.match(/flask|python|django/)
+    tags << 'Flask' if title_lower.include?('flask')
+    tags << 'Python' if title_lower.include?('python')
+  end
+  
+  if title_lower.match(/project|버티|msa|gateway|아키텍처|프로젝트/)
+    tags << 'Project'
+  end
+  
+  if title_lower.match(/aws|azure|gcp|cloud|iaas|paas|saas|docker|kubernetes/)
+    tags << 'Cloud' if title_lower.match(/aws|azure|gcp|cloud|iaas|paas|saas/)
+    tags << 'DevOps' if title_lower.match(/docker|kubernetes|jenkins|actions/)
+  end
+  
+  tags.uniq!
 
   # Front Matter 생성
   front_matter = <<~FRONTMATTER
     ---
     layout: post
-    title: "#{clean_title.gsub('"', '\"')}"
+    collection: til
+    title: #{blog_title}
     description: >
-      #{clean_title}에 대한 TIL 기록
+      #{post_date} TIL
     categories: #{categories}
     tags: #{tags}
     date: #{post_date} 00:00:00
@@ -127,36 +129,25 @@ til_issues.each do |issue|
   # 최종 포스트 내용
   post_content = front_matter + metadata + content
 
-  # 블로그 _posts 폴더에 저장
-  posts_dir = File.join(blog_path, '_posts')
-  FileUtils.mkdir_p(posts_dir)
+  # TIL 폴더에만 저장
+  til_posts_dir = File.join(blog_path, 'til', '_posts')
+  FileUtils.mkdir_p(til_posts_dir)
   
-  posts_filepath = File.join(posts_dir, filename)
-  
-  # 기존 파일이 있는지 확인 (같은 이슈 번호로)
-  existing_files = Dir.glob(File.join(posts_dir, "*issue-#{issue.number}*.md"))
+  # 기존 파일이 있는지 확인 (같은 날짜로)
+  existing_files = Dir.glob(File.join(til_posts_dir, "#{post_date}-*.md"))
   
   if existing_files.any?
-    posts_filepath = existing_files.first
-    puts "  ✅ Updating existing post: #{File.basename(posts_filepath)}"
+    # 기존 파일이 있으면 업데이트
+    til_filepath = existing_files.first
+    puts "  ✅ Updating existing TIL post: #{File.basename(til_filepath)}"
   else
-    # 새 파일명에 이슈 번호 포함하여 중복 방지
-    filename_with_issue = "#{post_date}-#{title_slug}-issue-#{issue.number}.md"
-    posts_filepath = File.join(posts_dir, filename_with_issue)
-    puts "  ✅ Creating new post: #{filename_with_issue}"
+    # 새 파일 생성
+    til_filepath = File.join(til_posts_dir, filename)
+    puts "  ✅ Creating new TIL post: #{filename}"
   end
   
-  File.write(posts_filepath, post_content)
-  
-  # 카테고리별 폴더에도 저장 (블로그 구조에 맞게)
-  category_dir = File.join(blog_path, primary_category, '_posts')
-  if Dir.exist?(File.join(blog_path, primary_category))
-    FileUtils.mkdir_p(category_dir)
-    category_filename = File.basename(posts_filepath)
-    category_filepath = File.join(category_dir, category_filename)
-    File.write(category_filepath, post_content)
-    puts "  📁 Also saved to category: #{primary_category}/_posts/"
-  end
+  File.write(til_filepath, post_content)
+  puts "  📁 Saved to: til/_posts/"
 end
 
 puts "🎉 Sync completed! Processed #{til_issues.length} TIL issues"

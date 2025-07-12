@@ -10,16 +10,31 @@ blog_path = 'blog'
 
 puts "Syncing TIL issues from #{til_repo} to blog..."
 
-# TIL 라벨이 있는 최근 이슈들 가져오기 (최근 10개)
-issues = client.issues(til_repo, state: 'all', per_page: 10)
-til_issues = issues.select do |issue|
-  issue.title.include?('[TIL]') || 
-  issue.labels.any? { |label| label.name.downcase.include?('til') }
+# 모든 TIL 이슈 가져오기 (페이지네이션 처리)
+all_issues = []
+page = 1
+per_page = 100
+
+loop do
+  puts "Fetching page #{page}..."
+  issues = client.issues(til_repo, state: 'all', per_page: per_page, page: page)
+  break if issues.empty?
+  
+  til_issues = issues.select do |issue|
+    issue.title.include?('[TIL]') || 
+    issue.labels.any? { |label| label.name.downcase.include?('til') }
+  end
+  
+  all_issues.concat(til_issues)
+  page += 1
+  
+  # API 레이트 리밋 방지
+  sleep(0.5)
 end
 
-puts "Found #{til_issues.length} TIL issues"
+puts "Found #{all_issues.length} TIL issues in total"
 
-til_issues.each do |issue|
+all_issues.each do |issue|
   puts "Processing issue ##{issue.number}: #{issue.title}"
   
   # 날짜 추출 (제목에서 YYYY-MM-DD 형식 찾기)
@@ -37,14 +52,13 @@ til_issues.each do |issue|
     .gsub(/#{Regexp.escape(post_date)}\s*/, '')
     .strip
   
-  # 제목 길이 제한 및 [TIL] 접두사 추가
+  # 제목 길이 제한
   display_title = clean_title
   if display_title.length > 50
     display_title = display_title.slice(0, 47) + "..."
   end
-  blog_title = "[TIL] #{display_title}"
   
-  # 파일명 생성 (간단하게)
+  # 파일명 생성
   filename = "#{post_date}-til.md"
   
   # TIL 카테고리로 고정하고 태그만 자동 분류
@@ -90,12 +104,11 @@ til_issues.each do |issue|
   
   tags.uniq!
 
-  # Front Matter 생성
+  # Front Matter 생성 (title 필드 제거)
   front_matter = <<~FRONTMATTER
     ---
     layout: post
     collection: til
-    title: #{blog_title}
     description: >
       #{post_date} TIL
     categories: #{categories}
@@ -109,11 +122,15 @@ til_issues.each do |issue|
 
   FRONTMATTER
 
-  # 이슈 내용 처리 - 첫 번째 헤딩 중복 제거
+  # 이슈 내용 처리
   content = issue.body || '내용이 없습니다.'
   
-  # "# TIL - YYYY-MM-DD" 형태의 헤딩이 있다면 제거 (블로그에서 제목으로 표시되므로)
-  content = content.gsub(/^#\s*TIL\s*-\s*\d{4}-\d{2}-\d{2}\s*\n?/, '')
+  # 기존의 TIL 헤딩 제거 (다양한 패턴 처리)
+  content = content.gsub(/^#\s*\[?TIL\]?\s*-?\s*\d{4}-\d{2}-\d{2}.*?\n?/m, '')
+  content = content.gsub(/^#\s*TIL\s*-?\s*\d{4}-\d{2}-\d{2}.*?\n?/m, '')
+  
+  # 메인 헤딩 추가 (# [TIL] 형태로)
+  main_heading = "# [TIL] #{display_title}\n\n"
   
   # 메타데이터 추가
   metadata = <<~METADATA
@@ -126,8 +143,8 @@ til_issues.each do |issue|
 
   METADATA
 
-  # 최종 포스트 내용
-  post_content = front_matter + metadata + content
+  # 최종 포스트 내용 (title 없이 구성)
+  post_content = front_matter + main_heading + metadata + content
 
   # TIL 폴더에만 저장
   til_posts_dir = File.join(blog_path, 'til', '_posts')
@@ -150,4 +167,4 @@ til_issues.each do |issue|
   puts "  📁 Saved to: til/_posts/"
 end
 
-puts "🎉 Sync completed! Processed #{til_issues.length} TIL issues"
+puts "🎉 Sync completed! Processed #{all_issues.length} TIL issues"
